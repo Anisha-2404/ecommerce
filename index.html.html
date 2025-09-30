@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title> E-commerce Website</title>
+  <title>Responsive E-commerce Website</title>
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -17,21 +17,70 @@
       flex-wrap: wrap;
       justify-content: space-between;
       align-items: center;
-      padding: 20px;
+      padding: 15px 20px;
       background: #333;
       color: white;
     }
 
-    h1 {
+    .logo h1 {
       margin: 0;
       font-size: 24px;
     }
 
-    .cart {
-      font-size: 18px;
+    nav {
+      display: flex;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-size: 16px;
+      padding: 5px 10px;
+      transition: background 0.2s;
+      border-radius: 5px;
+    }
+
+    nav a:hover {
+      background: #555;
+    }
+
+    .header-right {
+      display: flex;
+      gap: 15px;
+      align-items: center;
+      flex-wrap: wrap;
       margin-top: 10px;
     }
 
+    .cart {
+      font-size: 16px;
+      background: #444;
+      padding: 5px 10px;
+      border-radius: 5px;
+    }
+
+    .search input {
+      padding: 5px;
+      border-radius: 5px;
+      border: none;
+    }
+
+    .user button {
+      padding: 5px 10px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      background: #444;
+      color: white;
+    }
+
+    .user button:hover {
+      background: #555;
+    }
+
+    /* Products Grid */
     main {
       padding: 20px;
     }
@@ -83,17 +132,23 @@
     }
 
     @media (max-width: 768px) {
-      .product {
-        width: 45%;
-      }
-
       header {
         flex-direction: column;
         align-items: flex-start;
       }
 
-      .cart {
+      .header-right {
         margin-top: 10px;
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .products {
+        gap: 15px;
+      }
+
+      .product {
+        width: 45%;
       }
     }
 
@@ -102,12 +157,13 @@
         width: 100%;
       }
 
-      h1 {
-        font-size: 20px;
+      nav {
+        flex-direction: column;
+        gap: 5px;
       }
 
-      .cart {
-        font-size: 16px;
+      h1 {
+        font-size: 20px;
       }
     }
   </style>
@@ -115,9 +171,27 @@
 <body>
 
   <header>
-    <h1>My Shop</h1>
-    <div class="cart">
-      Cart: <span id="cart-count">0</span> items
+    <div class="logo">
+      <h1>My Shop</h1>
+    </div>
+
+    <nav>
+      <a href="#">Home</a>
+      <a href="#">Shop</a>
+      <a href="#">About</a>
+      <a href="#">Contact</a>
+    </nav>
+
+    <div class="header-right">
+      <div class="search">
+        <input type="text" placeholder="Search products...">
+      </div>
+      <div class="cart">
+        Cart: <span id="cart-count">0</span>
+      </div>
+      <div class="user">
+        <button>Login</button>
+      </div>
     </div>
   </header>
 
@@ -126,7 +200,6 @@
   </main>
 
   <script>
-    
     const products = [
       { id: 1, name: "Product 1", price: 100 },
       { id: 2, name: "Product 2", price: 200 },
@@ -140,7 +213,6 @@
     const productsContainer = document.getElementById("products");
     const cartCounter = document.getElementById("cart-count");
 
-    // Display products
     products.forEach(product => {
       const productDiv = document.createElement("div");
       productDiv.classList.add("product");
@@ -152,7 +224,6 @@
       productsContainer.appendChild(productDiv);
     });
 
-    // Add to cart
     function addToCart() {
       cartCount++;
       cartCounter.textContent = cartCount;
