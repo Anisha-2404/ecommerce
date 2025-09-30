@@ -5,19 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Palmonas - Exquisite Jewelry</title>
     
-    <!-- Load Tailwind CSS for modern, responsive styling -->
     <script src="https://cdn.tailwindcss.com"></script>
     
     <style>
-        /* Import the Inter font and Playfair Display for elegance */
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
         
         body {
             font-family: 'Inter', sans-serif;
-            /* No color transition needed as dark mode is removed */
         }
 
-        /* Custom animation for the hero button/element */
         .animate-bounce-slow {
             animation: bounce-slow 3s infinite;
         }
@@ -32,12 +28,10 @@
             }
         }
         
-        /* Main background color: Light Peach/Cream */
         .main-bg {
             background-color: #fcfcfc; 
         }
 
-        /* Modal specific styles for smooth transition */
         .modal-content {
             transition: transform 0.3s ease-out;
         }
@@ -48,18 +42,14 @@
 
     <div class="main-bg min-h-screen">
         
-        <!-- Header (Navbar) - Fixed light theme with gold accents -->
         <header class="sticky top-0 z-50 shadow-lg bg-white/95 backdrop-blur-sm transition-colors duration-500 border-b border-amber-200">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 flex flex-wrap items-center justify-between gap-4">
-                
-                <!-- Logo - Deep Gold/Bronze text -->
-                <div class="flex-shrink-0">
+                                <div class="flex-shrink-0">
                     <h1 class="text-4xl font-extrabold tracking-widest text-amber-700 font-['Playfair_Display']">
                         Palmonas
                     </h1>
                 </div>
 
-                <!-- Nav Links -->
                 <nav class="hidden md:flex space-x-6 order-2">
                     <a href="#rings" class="text-sm font-medium text-gray-700 hover:text-amber-700 transition duration-200 tracking-wider">Rings</a>
                     <a href="#necklaces" class="text-sm font-medium text-gray-700 hover:text-amber-700 transition duration-200 tracking-wider">Necklaces</a>
@@ -74,7 +64,6 @@
                     </a>
                 </nav>
 
-                <!-- Auth Buttons -->
                 <div class="flex items-center space-x-3 order-3">
                     <button
                         onclick="openLoginModal()"
@@ -88,15 +77,12 @@
                     >
                         Register
                     </button>
-
-                    <!-- REMOVED: Day/Night Mode Toggle -->
                 </div>
             </div>
         </header>
 
         <main class="max-w-7xl mx-auto">
             
-            <!-- Hero Section - Elevated Banner for Premium Feel (Light Peach/Gold Theme) -->
             <section class="px-4 sm:px-6 lg:px-8 mb-12 py-12">
                 <div class="bg-amber-50 rounded-2xl shadow-xl p-8 sm:p-12 text-center border-b-8 border-amber-400 transition-colors duration-500">
                     <h2 class="text-4xl sm:text-6xl font-['Playfair_Display'] font-bold text-amber-700 mb-4 tracking-tight">
@@ -111,7 +97,6 @@
                 </div>
             </section>
 
-            <!-- Product Grid Containers -->
             <section id="rings" class="py-8 px-4 sm:px-6 lg:px-8"></section>
             <section id="necklaces" class="py-8 px-4 sm:px-6 lg:px-8"></section>
             <section id="earrings" class="py-8 px-4 sm:px-6 lg:px-8"></section>
@@ -119,7 +104,6 @@
 
         </main>
         
-        <!-- Footer (Light Gray Theme) -->
         <footer class="bg-gray-200 border-t border-gray-300 text-gray-700 mt-12 py-8">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-sm">
                 <p>&copy; 2024 Palmonas | Pure Elegance. Guaranteed Quality. </p>
@@ -133,7 +117,6 @@
         
     </div>
 
-    <!-- Login Modal (Light Theme) -->
     <div id="login-modal" class="fixed inset-0 bg-gray-900 bg-opacity-75 flex items-center justify-center z-[9999] hidden transition-opacity duration-300 opacity-0">
         <div class="bg-white p-8 rounded-xl shadow-2xl w-full max-w-md modal-content transform scale-95 relative">
             <h3 class="text-3xl font-bold font-['Playfair_Display'] text-pink-600 mb-6 border-b pb-2">Welcome Back</h3>
@@ -160,7 +143,6 @@
         </div>
     </div>
 
-    <!-- Register Modal (Light Theme) -->
     <div id="register-modal" class="fixed inset-0 bg-gray-900 bg-opacity-75 flex items-center justify-center z-[9999] hidden transition-opacity duration-300 opacity-0">
         <div class="bg-white p-8 rounded-xl shadow-2xl w-full max-w-md modal-content transform scale-95 relative">
             <h3 class="text-3xl font-bold font-['Playfair_Display'] text-pink-600 mb-6 border-b pb-2">Join Palmonas</h3>
@@ -192,7 +174,6 @@
     </div>
 
     <script>
-        // --- Mock Product Data (Categorized) ---
         const MOCK_PRODUCTS = [
             { id: 1, name: "Celestial Diamond Studs", price: 15999, image: "https://placehold.co/400x300/fef3c7/6b7280?text=Diamond+Earrings", category: "Earrings" },
             { id: 2, name: "Rose Gold Infinity Ring", price: 9500, image: "https://placehold.co/400x300/fbcfe8/be185d?text=Rose+Ring", category: "Rings" },
@@ -207,14 +188,12 @@
         ];
 
 
-        // --- MODAL LOGIC (Login/Register Forms) ---
         const loginModal = document.getElementById('login-modal');
         const registerModal = document.getElementById('register-modal');
 
         const openModal = (modal) => {
             const content = modal.querySelector('.modal-content');
             modal.classList.remove('hidden');
-            // Give browser time to recognize 'display: flex' before starting opacity/scale transition
             setTimeout(() => {
                 modal.classList.remove('opacity-0');
                 content.classList.remove('scale-95');
@@ -236,16 +215,12 @@
         const openRegisterModal = () => openModal(registerModal);
         const closeRegisterModal = () => closeModal(registerModal);
         
-        // --- Product Rendering Logic ---
 
-        // Function to create the HTML for a single product card
         const createProductCard = (product) => {
-            // Currency is in ₹ (Rupees)
             const formattedPrice = product.price.toLocaleString('en-IN', { minimumFractionDigits: 0 });
 
             return `
                 <div class="bg-white rounded-xl shadow-lg hover:shadow-2xl transition duration-500 ease-in-out transform hover:-translate-y-2 overflow-hidden group border border-gray-100 cursor-pointer">
-                    <!-- Product Image -->
                     <div class="relative overflow-hidden">
                         <img
                             src="${product.image}"
@@ -261,7 +236,6 @@
                         </div>
                     </div>
 
-                    <!-- Product Info -->
                     <div class="p-5 text-center">
                         <h3 class="text-lg font-['Playfair_Display'] tracking-wide text-gray-900 truncate mb-1" title="${product.name}">
                             ${product.name}
@@ -280,7 +254,6 @@
             `;
         };
 
-        // Function to render a specific category section
         const renderCategorySection = (category, title) => {
             const elementId = category.toLowerCase();
             const sectionElement = document.getElementById(elementId);
@@ -295,7 +268,6 @@
 
             const productCards = filteredProducts.map(createProductCard).join('');
 
-            // Attractive Skin Tone Selectors (Placeholder for Virtual Try-On)
             const skinToneSelectors = `
                 <div class="flex flex-wrap items-center space-x-4 mb-6 text-sm">
                     <span class="font-bold text-gray-800 tracking-wider mr-2">Preview on Skin Tone:</span>
@@ -315,7 +287,6 @@
                 </h2>
                 ${skinToneSelectors}
                 
-                <!-- Responsive Grid: 2 columns mobile, 3 tablet, 4 desktop -->
                 <div class="grid grid-cols-2 gap-6 sm:grid-cols-3 lg:grid-cols-4 md:gap-8">
                     ${productCards}
                 </div>
@@ -327,11 +298,8 @@
             `;
         };
 
-        // Initial setup and rendering on load
         window.addEventListener('load', () => {
-            // REMOVED: initializeTheme();
             
-            // Render all category sections
             renderCategorySection('Rings', 'Exquisite Rings Collection');
             renderCategorySection('Necklaces', 'Elegant Necklaces & Pendants');
             renderCategorySection('Earrings', 'Stylish Earrings & Studs');
